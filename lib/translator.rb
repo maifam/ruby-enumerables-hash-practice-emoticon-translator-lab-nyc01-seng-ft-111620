@@ -10,8 +10,11 @@ def load_library(file_path)
   
   emoticon_list = {} 
   
-  YAML.load_file(path) do |key, value|
-    emoticon_list[key] = {:english => value[0], :japanese => value[1]}
+  emoticons.each do |key, pairs|
+    emoticon_list2 ={}
+    emoticon_list2.store(:english, pairs[0])
+    emoticon_list2.store(:japanese, pairs[1])
+    emoticon_list.store(key,emoticon_list2)
   end 
   emoticon_list
 end
