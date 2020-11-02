@@ -1,10 +1,10 @@
 # require modules here
-require 'pry'
+
 require 'yaml'
 
 emoticons = YAML.load_file('lib/emoticons.yml')
   
-def load_library(path)
+def load_library(file_path)
   
   emoticon_list = {} 
   
@@ -14,9 +14,11 @@ def load_library(path)
   emoticon_list
 end
 
-def get_japanese_emoticon(path, emoticon)
+def get_japanese_emoticon(file_path, emoticon)
   
-  load_library(path).each do |key, val| 
+  emoticons = load_library(file_path)
+  
+  emoticons.each do |key, val| 
     if val[:english] == emoticon 
       return val[:japanese]
     end 
@@ -24,9 +26,11 @@ def get_japanese_emoticon(path, emoticon)
   return "Sorry, that emoticon was not found"
 end
 
-def get_english_meaning(path, emoticon)
+def get_english_meaning(file_path, emoticon)
   
-  load_library(path).each do |key, value| 
+  emoticons = load_library(file_path)
+  
+  emoticons.each do |key, value| 
     if value[:japanese] == emoticon 
       return key 
     end 
