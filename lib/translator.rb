@@ -11,7 +11,7 @@ def load_library(path)
   emoticons.each do |key, value|
     emoticon_list[key] = {}
     emoticon_list[key][:english] = value[0]
-    emoticon_list[key][:japanese] = value[1]}
+    emoticon_list[key][:japanese] = value[1]
     #binding.pry
   end 
   emoticon_list
