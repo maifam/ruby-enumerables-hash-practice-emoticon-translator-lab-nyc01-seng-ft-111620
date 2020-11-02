@@ -11,10 +11,9 @@ def load_library(file_path)
   emoticon_list = {} 
   
   emoticons.each do |key, pairs|
-    emoticon_list2 ={}
-    emoticon_list2.store(:english, pairs[0])
-    emoticon_list2.store(:japanese, pairs[1])
-    emoticon_list.store(key,emoticon_list2)
+    emoticon_list[key] = {}
+    emoticon_list[key][:english] = pairs[0]
+    emoticon_list[key][:japanese] = pairs[1]
   end 
   emoticon_list
 end
